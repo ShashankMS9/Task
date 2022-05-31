@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "virtualMachineAdminUserName": {
+      "value": null
+    },
+    "virtualMachineAdminPassword": {
+      "value": null
+    },
+    "vmName": {
+      "value": "demo"
+    },
+    "virtualMachineCount": {
+      "value": 3
+    },
+    "virtualMachineSize": {
+      "value": "Standard_D2s_v3"
+    },
+    "OSVersion": {
+      "value": "2019-datacenter-gensecond"
+    },
+    "availabilitySetName": {
+      "value": "SKAvailabilitySet"
+    },
+    "dnsPrefixForPublicIP": {
+      "value": "[toLower(format('{0}-{1}', parameters('vmName'), uniqueString(resourceGroup().id, parameters('vmName'))))]"
+    },
+    "location": {
+      "value": "[resourceGroup().location]"
+    }
+  }
+}
